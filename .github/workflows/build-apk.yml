@@ -13,6 +13,7 @@ jobs:
 
       - name: Extract Android project
         run: |
+          rm -rf project
           mkdir -p project
           unzip -q ANANDA_Android_GitHub_Build.zip -d project
 
@@ -22,17 +23,19 @@ jobs:
       - name: Find Android project
         id: android
         run: |
-          GRADLEW=$(find project -name gradlew | head -n 1)
+          PROJECT_FILE=$(find project \
+            \( -name "settings.gradle" -o -name "settings.gradle.kts" \) \
+            | head -n 1)
 
-          echo "Found gradlew:"
-          echo "$GRADLEW"
+          echo "Found settings file:"
+          echo "$PROJECT_FILE"
 
-          if [ -z "$GRADLEW" ]; then
-            echo "ERROR: gradlew was not found!"
+          if [ -z "$PROJECT_FILE" ]; then
+            echo "ERROR: Android project settings.gradle was not found!"
             exit 1
           fi
 
-          PROJECT_DIR=$(dirname "$GRADLEW")
+          PROJECT_DIR=$(dirname "$PROJECT_FILE")
 
           echo "Android project directory:"
           echo "$PROJECT_DIR"
@@ -45,11 +48,20 @@ jobs:
           distribution: temurin
           java-version: "17"
 
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@v4
+
       - name: Build debug APK
         working-directory: ${{ steps.android.outputs.project_dir }}
         run: |
-          chmod +x ./gradlew
-          ./gradlew assembleDebug --stacktrace
+          if [ -f "./gradlew" ]; then
+            echo "Using Gradle Wrapper"
+            chmod +x ./gradlew
+            ./gradlew assembleDebug --stacktrace
+          else
+            echo "Gradle Wrapper not found. Using installed Gradle."
+            gradle assembleDebug --stacktrace
+          fi
 
       - name: Find generated APK
         run: |
