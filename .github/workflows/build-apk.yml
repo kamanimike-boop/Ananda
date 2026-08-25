@@ -13,33 +13,52 @@ jobs:
 
       - name: Extract Android project
         run: |
-          mkdir project
+          mkdir -p project
           unzip -q ANANDA_Android_GitHub_Build.zip -d project
-          echo "Project files:"
-          find project -maxdepth 3 -type f | head -50
 
-      - name: Find Gradle project
-        id: gradle
+          echo "=== PROJECT STRUCTURE ==="
+          find project -maxdepth 5 -type f | sort
+
+      - name: Find Android project
+        id: android
         run: |
-          PROJECT_DIR=$(find project -name gradlew -type f -printf '%h\n' | head -1)
-          echo "Found project: $PROJECT_DIR"
-          echo "project_dir=$PROJECT_DIR" >> $GITHUB_OUTPUT
+          GRADLEW=$(find project -name gradlew | head -n 1)
+
+          echo "Found gradlew:"
+          echo "$GRADLEW"
+
+          if [ -z "$GRADLEW" ]; then
+            echo "ERROR: gradlew was not found!"
+            exit 1
+          fi
+
+          PROJECT_DIR=$(dirname "$GRADLEW")
+
+          echo "Android project directory:"
+          echo "$PROJECT_DIR"
+
+          echo "project_dir=$PROJECT_DIR" >> "$GITHUB_OUTPUT"
 
       - name: Set up Java
         uses: actions/setup-java@v4
         with:
           distribution: temurin
-          java-version: '17'
+          java-version: "17"
 
       - name: Build debug APK
-        working-directory: ${{ steps.gradle.outputs.project_dir }}
+        working-directory: ${{ steps.android.outputs.project_dir }}
         run: |
-          chmod +x gradlew
-          ./gradlew assembleDebug
+          chmod +x ./gradlew
+          ./gradlew assembleDebug --stacktrace
+
+      - name: Find generated APK
+        run: |
+          echo "=== APK FILES ==="
+          find project -type f -name "*.apk"
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
           name: ANANDA-APK
-          path: |
-            project/**/build/outputs/apk/debug/*.apk
+          path: project/**/*.apk
+          if-no-files-found: error
