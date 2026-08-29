@@ -13,34 +13,11 @@ jobs:
 
       - name: Extract Android project
         run: |
-          rm -rf project
           mkdir -p project
           unzip -q ANANDA_Android_GitHub_Build.zip -d project
 
           echo "=== PROJECT STRUCTURE ==="
           find project -maxdepth 5 -type f | sort
-
-      - name: Find Android project
-        id: android
-        run: |
-          PROJECT_FILE=$(find project \
-            \( -name "settings.gradle" -o -name "settings.gradle.kts" \) \
-            | head -n 1)
-
-          echo "Found settings file:"
-          echo "$PROJECT_FILE"
-
-          if [ -z "$PROJECT_FILE" ]; then
-            echo "ERROR: Android project settings.gradle was not found!"
-            exit 1
-          fi
-
-          PROJECT_DIR=$(dirname "$PROJECT_FILE")
-
-          echo "Android project directory:"
-          echo "$PROJECT_DIR"
-
-          echo "project_dir=$PROJECT_DIR" >> "$GITHUB_OUTPUT"
 
       - name: Set up Java
         uses: actions/setup-java@v4
@@ -50,27 +27,22 @@ jobs:
 
       - name: Set up Gradle
         uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: "8.7"
 
       - name: Build debug APK
-        working-directory: ${{ steps.android.outputs.project_dir }}
+        working-directory: project
         run: |
-          if [ -f "./gradlew" ]; then
-            echo "Using Gradle Wrapper"
-            chmod +x ./gradlew
-            ./gradlew assembleDebug --stacktrace
-          else
-            echo "Gradle Wrapper not found. Using installed Gradle."
-            gradle assembleDebug --stacktrace
-          fi
+          gradle assembleDebug --stacktrace
 
       - name: Find generated APK
         run: |
           echo "=== APK FILES ==="
-          find project -type f -name "*.apk"
+          find project -type f -name "*.apk" -print
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
           name: ANANDA-APK
-          path: project/**/*.apk
+          path: project/app/build/outputs/apk/debug/*.apk
           if-no-files-found: error
