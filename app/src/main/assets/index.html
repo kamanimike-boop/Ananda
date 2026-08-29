@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ANANDA | Ayurvedic Body & Mind Healing Consultancy</title>
+<style>
+/* STRONG, CONSISTENT ANANDA COLOUR PALETTE */
+:root{
+  --forest:#123b2a;
+  --deep:#0b2b1d;
+  --leaf:#4f7f3a;
+  --sage:#91a77b;
+  --gold:#c99b4a;
+  --sand:#efe5d2;
+  --cream:#faf5e9;
+  --white:#ffffff;
+  --ink:#20342a;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--cream);color:var(--ink)}
+.top{background:var(--deep);color:white;padding:12px 6%;display:flex;justify-content:space-between;font-size:14px}
+.nav{background:white;display:flex;align-items:center;gap:30px;padding:18px 6%;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.brand{color:var(--forest);font-family:Georgia,serif;line-height:1}
+.brand b{font-size:42px;letter-spacing:3px}
+.brand small{display:block;font-family:Arial;margin-top:7px;color:var(--leaf)}
+.links{display:flex;gap:22px;margin-left:auto;align-items:center;font-size:14px}
+.links a{color:var(--ink)}
+.cta{background:var(--forest);color:white;padding:14px 22px}
+.hero{display:grid;grid-template-columns:40% 60%;min-height:430px;background:linear-gradient(90deg,#f5eddc 0%,#f5eddc 42%,#e5ead7 42%)}
+.copy{padding:55px 8%;display:flex;flex-direction:column;justify-content:center;text-align:center}
+.copy .welcome{font:28px Georgia,serif}
+.copy h1{font:76px Georgia,serif;letter-spacing:5px;color:var(--forest);margin:4px 0}
+.copy h2{font:28px Georgia,serif;margin:0}
+.copy p{font-size:16px;line-height:1.7}
+.buttons{display:flex;gap:12px;justify-content:center;margin-top:12px}
+.btn{padding:14px 19px;border:2px solid var(--forest);font-weight:bold;font-size:13px}
+.btn.green{background:var(--leaf);color:white;border-color:var(--leaf)}
+.btn.white{background:white;color:var(--forest)}
+.heroimg{background:url('assets/herbal-hero.jpg') center/cover no-repeat}
+.title{padding:35px 20px 18px;text-align:center;background:var(--sand)}
+.title h2{margin:0;color:var(--forest);font-size:25px;letter-spacing:1px}
+.title i{display:block;width:70px;height:4px;background:var(--gold);margin:12px auto}
+.categories{padding:0 4% 40px;background:var(--sand);display:grid;grid-template-columns:repeat(5,1fr);gap:18px}
+.card{background:white;border-radius:12px;overflow:hidden;box-shadow:0 4px 13px rgba(22,55,35,.16);border-bottom:5px solid var(--leaf)}
+.card img{width:100%;height:150px;object-fit:cover;display:block}
+.card div{min-height:74px;padding:14px 10px;text-align:center;font-weight:bold;font-size:13px;color:var(--forest)}
+.info{padding:45px 6%;background:#e5eddc;display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.box{background:white;padding:27px;border-top:7px solid var(--leaf);box-shadow:0 4px 12px rgba(0,0,0,.09)}
+.box h3{margin-top:0;color:var(--forest);font-size:20px}
+.box p,.box li{line-height:1.7;font-size:14px}
+.box ul{padding-left:20px}
+.highlight{background:var(--forest);color:white;padding:55px 8%;text-align:center}
+.highlight h2{font:34px Georgia,serif;color:#f7dfaa;margin:0}
+.highlight p{max-width:700px;margin:16px auto;line-height:1.8}
+footer{background:var(--deep);color:#dce8d7;text-align:center;padding:24px;font-size:13px}
+@media(max-width:900px){
+ .links{display:none}.hero{grid-template-columns:1fr}.heroimg{min-height:300px}
+ .categories{grid-template-columns:repeat(2,1fr)}
+ .info{grid-template-columns:1fr}.copy h1{font-size:58px}
+}
+
+/* ANANDA Android app enhancements */
+.mobilebar{display:none}
+.actionrow{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:12px}
+.action{display:inline-block;border-radius:4px}
+.shop-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:18px}
+.shop-item{background:#fff;border:1px solid #d7cfbf;border-radius:10px;padding:14px;color:#123b2a}
+.shop-item strong{display:block;margin-bottom:5px}
+@media(max-width:700px){
+  .top{font-size:11px;padding:9px 12px}
+  .top span:first-child{max-width:75%;white-space:nowrap;overflow:hidden}
+  .nav{padding:13px 14px;gap:10px;position:sticky;top:0;z-index:20}
+  .brand b{font-size:29px}
+  .brand small{font-size:9px}
+  .cta{display:none}
+  .hero{min-height:0}
+  .copy{padding:34px 18px}
+  .copy h1{font-size:54px}
+  .copy h2{font-size:22px}
+  .copy p{font-size:14px}
+  .heroimg{min-height:240px}
+  .categories{grid-template-columns:repeat(2,1fr);padding:0 14px 25px;gap:10px}
+  .card img{height:105px}
+  .card div{font-size:11px;min-height:64px}
+  .info{padding:28px 14px;grid-template-columns:1fr;gap:14px}
+  .box{padding:20px}
+  .title{padding-top:26px}
+  .mobilebar{position:fixed;display:grid;grid-template-columns:repeat(4,1fr);bottom:0;left:0;right:0;background:#0b2b1d;color:#fff;z-index:50;box-shadow:0 -3px 12px rgba(0,0,0,.18)}
+  .mobilebar a{padding:10px 4px;text-align:center;font-size:11px;color:#fff}
+  .mobilebar b{display:block;font-size:17px;color:#c99b4a}
+  body{padding-bottom:56px}
+}
+
+</style>
+</head>
+<body>
+<div class="top"><span>☎ +254 700 123 456 &nbsp;&nbsp; ✉ info@anandaayurveda.com</span><span>Nairobi, Kenya</span></div>
+<div class="nav">
+ <div class="brand"><b>ANANDA</b><small>Ayurvedic Body & Mind Healing Consultancy<br>Founded by Dr Kim Khan</small></div>
+ <div class="links"><a>Home</a><a>About Us</a><a>Services</a><a>Consultations</a><a>Herbal Shop</a><a>Programmes</a><a>Education</a><a>Contact</a></div>
+ <div class="cta">BOOK A CONSULTATION</div>
+</div>
+<section class="hero">
+ <div class="copy">
+  <div class="welcome">Welcome to</div>
+  <h1>ANANDA</h1>
+  <h2>Ayurvedic Body & Mind<br>Healing Consultancy</h2>
+  <p>Natural wellness consultations, Ayurvedic education and herbal wellness products inspired by traditional knowledge for a healthier body and a calmer mind.</p>
+  <div class="buttons"><a class="btn green action" href="https://wa.me/254700123456?text=Hello%20ANANDA%2C%20I%20would%20like%20to%20book%20a%20consultation.">BOOK A CONSULTATION</a><a class="btn white action" href="#shop">VISIT HERBAL SHOP</a></div>
+ </div>
+ <div class="heroimg"></div>
+</section>
+<section class="title"><h2>OUR HERBAL WELLNESS CATEGORIES</h2><i></i></section>
+<section class="categories">
+<div class="card"><img src="assets/cat-1.jpg" alt="1. MEN'S WELLNESS"><div>1. MEN'S WELLNESS</div></div>
+<div class="card"><img src="assets/cat-2.jpg" alt="2. WOMEN'S WELLNESS"><div>2. WOMEN'S WELLNESS</div></div>
+<div class="card"><img src="assets/cat-3.jpg" alt="3. BONES, JOINTS & MOBILITY"><div>3. BONES, JOINTS & MOBILITY</div></div>
+<div class="card"><img src="assets/cat-4.jpg" alt="4. URINARY & EXCRETORY WELLNESS"><div>4. URINARY & EXCRETORY WELLNESS</div></div>
+<div class="card"><img src="assets/cat-5.jpg" alt="5. SKIN & NATURAL CLEANSING"><div>5. SKIN & NATURAL CLEANSING</div></div>
+<div class="card"><img src="assets/cat-6.jpg" alt="6. DIGESTIVE & GUT WELLNESS"><div>6. DIGESTIVE & GUT WELLNESS</div></div>
+<div class="card"><img src="assets/cat-7.jpg" alt="7. NERVOUS SYSTEM & MIND WELLNESS"><div>7. NERVOUS SYSTEM & MIND WELLNESS</div></div>
+<div class="card"><img src="assets/cat-8.jpg" alt="8. HEART & CIRCULATORY WELLNESS"><div>8. HEART & CIRCULATORY WELLNESS</div></div>
+<div class="card"><img src="assets/cat-9.jpg" alt="9. RESPIRATORY WELLNESS"><div>9. RESPIRATORY WELLNESS</div></div>
+<div class="card"><img src="assets/cat-10.jpg" alt="10. MENTAL WELLNESS & STRESS MANAGEMENT"><div>10. MENTAL WELLNESS & STRESS MANAGEMENT</div></div>
+
+</section>
+
+<section class="title" id="shop"><h2>HERBAL SHOP</h2><i></i>
+<div class="shop-grid" style="max-width:1000px;margin:18px auto 0;padding:0 14px">
+  <a class="shop-item" href="https://wa.me/254700123456?text=Hello%20ANANDA%2C%20I%20would%20like%20information%20about%20Men%27s%20Wellness%20products."><strong>Men's Wellness</strong><span>Ask about available herbal products</span></a>
+  <a class="shop-item" href="https://wa.me/254700123456?text=Hello%20ANANDA%2C%20I%20would%20like%20information%20about%20Women%27s%20Wellness%20products."><strong>Women's Wellness</strong><span>Ask about available herbal products</span></a>
+  <a class="shop-item" href="https://wa.me/254700123456?text=Hello%20ANANDA%2C%20I%20would%20like%20information%20about%20Digestive%20Wellness%20products."><strong>Digestive & Gut Wellness</strong><span>Ask about available herbal products</span></a>
+  <a class="shop-item" href="https://wa.me/254700123456?text=Hello%20ANANDA%2C%20I%20would%20like%20information%20about%20Mind%20%26%20Stress%20Wellness%20products."><strong>Mind & Stress Wellness</strong><span>Ask about available herbal products</span></a>
+</div></section>
+
+<section class="info">
+ <div class="box"><h3>ABOUT ANANDA</h3><p>ANANDA is an Ayurvedic Body and Mind Healing Consultancy founded by Dr Kim Khan. We focus on natural wellness education, traditional Ayurvedic approaches and guidance for healthier living.</p></div>
+ <div class="box"><h3>OUR SERVICES</h3><ul><li>Ayurvedic Wellness</li><li>Body Wellbeing</li><li>Mind Healing & Mindfulness</li><li>Personal Consultations</li><li>Online Consultations</li><li>Education & Training</li></ul></div>
+ <div class="box"><h3>UPCOMING PROGRAMMES</h3><p><b>Ayurvedic Lifestyle Workshop</b><br>Nairobi</p><p><b>Mindfulness & Meditation Classes</b><br>Online</p><p><b>Herbal Medicine Training</b><br>Educational programme</p></div>
+</section>
+<section class="highlight"><h2>Healing with Ayurvedic – Dr Kim Khan</h2><p>Explore Ayurveda, natural wellness, mindfulness and practical education for body and mind wellbeing.</p></section>
+
+<nav class="mobilebar">
+ <a href="#"><b>⌂</b>Home</a>
+ <a href="#shop"><b>🛍</b>Shop</a>
+ <a href="https://wa.me/254700123456?text=Hello%20ANANDA%2C%20I%20would%20like%20to%20book%20a%20consultation."><b>💬</b>WhatsApp</a>
+ <a href="tel:+254700123456"><b>☎</b>Call</a>
+</nav>
+
+<footer>© 2026 ANANDA Ayurvedic Body & Mind Healing Consultancy</footer>
+</body></html>

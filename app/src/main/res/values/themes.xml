@@ -1,0 +1,9 @@
+<resources>
+    <style name="Theme.Ananda" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:fontFamily">sans</item>
+        <item name="android:statusBarColor">#0B2B1D</item>
+        <item name="android:navigationBarColor">#0B2B1D</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowBackground">#FAF5E9</item>
+    </style>
+</resources>
