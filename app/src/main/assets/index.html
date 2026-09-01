@@ -2,151 +2,367 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0b2b1d">
 <title>ANANDA | Ayurvedic Body & Mind Healing Consultancy</title>
 <style>
-/* STRONG, CONSISTENT ANANDA COLOUR PALETTE */
-:root{
-  --forest:#123b2a;
-  --deep:#0b2b1d;
-  --leaf:#4f7f3a;
-  --sage:#91a77b;
-  --gold:#c99b4a;
-  --sand:#efe5d2;
-  --cream:#faf5e9;
-  --white:#ffffff;
-  --ink:#20342a;
-}
-*{box-sizing:border-box}
-body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--cream);color:var(--ink)}
-.top{background:var(--deep);color:white;padding:12px 6%;display:flex;justify-content:space-between;font-size:14px}
-.nav{background:white;display:flex;align-items:center;gap:30px;padding:18px 6%;box-shadow:0 2px 8px rgba(0,0,0,.08)}
-.brand{color:var(--forest);font-family:Georgia,serif;line-height:1}
-.brand b{font-size:42px;letter-spacing:3px}
-.brand small{display:block;font-family:Arial;margin-top:7px;color:var(--leaf)}
-.links{display:flex;gap:22px;margin-left:auto;align-items:center;font-size:14px}
-.links a{color:var(--ink)}
-.cta{background:var(--forest);color:white;padding:14px 22px}
-.hero{display:grid;grid-template-columns:40% 60%;min-height:430px;background:linear-gradient(90deg,#f5eddc 0%,#f5eddc 42%,#e5ead7 42%)}
-.copy{padding:55px 8%;display:flex;flex-direction:column;justify-content:center;text-align:center}
-.copy .welcome{font:28px Georgia,serif}
-.copy h1{font:76px Georgia,serif;letter-spacing:5px;color:var(--forest);margin:4px 0}
-.copy h2{font:28px Georgia,serif;margin:0}
-.copy p{font-size:16px;line-height:1.7}
-.buttons{display:flex;gap:12px;justify-content:center;margin-top:12px}
-.btn{padding:14px 19px;border:2px solid var(--forest);font-weight:bold;font-size:13px}
-.btn.green{background:var(--leaf);color:white;border-color:var(--leaf)}
-.btn.white{background:white;color:var(--forest)}
-.heroimg{background:url('assets/herbal-hero.jpg') center/cover no-repeat}
-.title{padding:35px 20px 18px;text-align:center;background:var(--sand)}
-.title h2{margin:0;color:var(--forest);font-size:25px;letter-spacing:1px}
-.title i{display:block;width:70px;height:4px;background:var(--gold);margin:12px auto}
-.categories{padding:0 4% 40px;background:var(--sand);display:grid;grid-template-columns:repeat(5,1fr);gap:18px}
-.card{background:white;border-radius:12px;overflow:hidden;box-shadow:0 4px 13px rgba(22,55,35,.16);border-bottom:5px solid var(--leaf)}
-.card img{width:100%;height:150px;object-fit:cover;display:block}
-.card div{min-height:74px;padding:14px 10px;text-align:center;font-weight:bold;font-size:13px;color:var(--forest)}
-.info{padding:45px 6%;background:#e5eddc;display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.box{background:white;padding:27px;border-top:7px solid var(--leaf);box-shadow:0 4px 12px rgba(0,0,0,.09)}
-.box h3{margin-top:0;color:var(--forest);font-size:20px}
-.box p,.box li{line-height:1.7;font-size:14px}
-.box ul{padding-left:20px}
-.highlight{background:var(--forest);color:white;padding:55px 8%;text-align:center}
-.highlight h2{font:34px Georgia,serif;color:#f7dfaa;margin:0}
-.highlight p{max-width:700px;margin:16px auto;line-height:1.8}
-footer{background:var(--deep);color:#dce8d7;text-align:center;padding:24px;font-size:13px}
-@media(max-width:900px){
- .links{display:none}.hero{grid-template-columns:1fr}.heroimg{min-height:300px}
- .categories{grid-template-columns:repeat(2,1fr)}
- .info{grid-template-columns:1fr}.copy h1{font-size:58px}
-}
-
-/* ANANDA Android app enhancements */
-.mobilebar{display:none}
-.actionrow{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:12px}
-.action{display:inline-block;border-radius:4px}
-.shop-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:18px}
-.shop-item{background:#fff;border:1px solid #d7cfbf;border-radius:10px;padding:14px;color:#123b2a}
-.shop-item strong{display:block;margin-bottom:5px}
-@media(max-width:700px){
-  .top{font-size:11px;padding:9px 12px}
-  .top span:first-child{max-width:75%;white-space:nowrap;overflow:hidden}
-  .nav{padding:13px 14px;gap:10px;position:sticky;top:0;z-index:20}
-  .brand b{font-size:29px}
-  .brand small{font-size:9px}
-  .cta{display:none}
-  .hero{min-height:0}
-  .copy{padding:34px 18px}
-  .copy h1{font-size:54px}
-  .copy h2{font-size:22px}
-  .copy p{font-size:14px}
-  .heroimg{min-height:240px}
-  .categories{grid-template-columns:repeat(2,1fr);padding:0 14px 25px;gap:10px}
-  .card img{height:105px}
-  .card div{font-size:11px;min-height:64px}
-  .info{padding:28px 14px;grid-template-columns:1fr;gap:14px}
-  .box{padding:20px}
-  .title{padding-top:26px}
-  .mobilebar{position:fixed;display:grid;grid-template-columns:repeat(4,1fr);bottom:0;left:0;right:0;background:#0b2b1d;color:#fff;z-index:50;box-shadow:0 -3px 12px rgba(0,0,0,.18)}
-  .mobilebar a{padding:10px 4px;text-align:center;font-size:11px;color:#fff}
-  .mobilebar b{display:block;font-size:17px;color:#c99b4a}
-  body{padding-bottom:56px}
-}
-
+:root{--forest:#123b2a;--deep:#0b2b1d;--leaf:#4f7f3a;--gold:#c99b4a;--sand:#efe5d2;--cream:#faf5e9;--white:#fff;--ink:#20342a;--muted:#6d746f;--rust:#c77f5e}
+*{box-sizing:border-box}html,body{margin:0;padding:0;background:var(--cream);color:var(--ink);font-family:Arial,Helvetica,sans-serif}button,input,select,textarea{font:inherit}button{cursor:pointer}
+.app{max-width:760px;margin:auto;background:var(--cream);min-height:100vh;padding-bottom:76px}.top{height:38px;background:var(--deep);color:#fff;padding:9px 18px;font-size:12px;display:flex;justify-content:space-between}.brand{background:#fff;padding:20px 22px 18px;border-bottom:1px solid #e6e0d5}.brand b{display:block;font:42px Georgia,serif;letter-spacing:4px;color:var(--forest)}.brand span{display:block;color:var(--leaf);font-size:15px;margin-top:8px}.brand small{display:block;color:#68736b;font-size:12px;margin-top:3px}
+.page{display:none}.page.active{display:block}.section{padding:22px 18px}.eyebrow{font-size:12px;letter-spacing:2px;color:#5c735f;text-transform:uppercase;margin-bottom:8px}.title{font-size:27px;margin:0 0 10px;color:#183c2b}.intro{color:#70756f;line-height:1.6;margin:0 0 18px}
+.hero{padding:22px 18px;background:linear-gradient(90deg,#f5eddc,#e8eedf)}.hero h1{font:42px Georgia,serif;letter-spacing:2px;color:var(--forest);margin:4px 0 8px}.hero h2{font:21px Georgia,serif;margin:0 0 14px}.hero p{line-height:1.55;margin:0 0 18px}.heroimg{width:100%;height:205px;border-radius:16px;background:url('assets/herbal-hero.jpg') center/cover no-repeat;margin-bottom:16px}.actions{display:grid;grid-template-columns:1fr 1fr;gap:10px}.btn{border:0;border-radius:7px;padding:14px 10px;font-weight:700}.green{background:var(--forest);color:#fff}.leaf{background:var(--leaf);color:#fff}.outline{background:#fff;color:var(--forest);border:1px solid var(--forest)}.rust{background:var(--rust);color:#fff}
+.card{background:#fff;border:1px solid #e1ddd4;border-radius:15px;padding:15px;margin-bottom:12px;box-shadow:0 2px 8px rgba(30,50,35,.04)}.card h3{margin:0 0 7px;font-size:16px}.card p{margin:0;color:#70746f;line-height:1.5;font-size:14px}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}.grid2 .card{margin:0}.product img,.cat img{width:100%;height:120px;object-fit:cover;border-radius:10px 10px 0 0;margin:-15px -15px 12px;width:calc(100% + 30px)}.price{color:var(--rust);font-weight:700;margin:9px 0}.smallbtn{width:100%;padding:10px;border:0;border-radius:6px;background:#607963;color:#fff;font-weight:700}.search{width:100%;padding:13px;border:1px solid #ddd6cb;border-radius:9px;background:#fff;margin-bottom:12px}.chips{display:flex;gap:7px;overflow:auto;margin-bottom:15px}.chip{white-space:nowrap;border:1px solid #d9d3c8;background:#fff;border-radius:20px;padding:7px 11px;font-size:12px}.chip.active{background:var(--forest);color:#fff}
+.detailimg{width:100%;height:220px;object-fit:cover;border-radius:14px;margin-bottom:14px}.back{background:none;border:0;color:var(--forest);font-weight:700;padding:0;margin-bottom:15px}.listrow{display:flex;gap:12px;align-items:center;padding:13px 0;border-bottom:1px solid #ebe6dd}.listrow:last-child{border-bottom:0}.icon{width:42px;height:42px;border-radius:50%;background:#e7eee7;display:grid;place-items:center;font-size:20px;flex:none}.form label{display:block;font-size:12px;font-weight:700;margin:12px 0 5px}.form input,.form select,.form textarea{width:100%;padding:12px;border:1px solid #ddd6cb;border-radius:7px;background:#fff}.form textarea{min-height:90px;resize:vertical}
+.notice{padding:15px;border:1px solid #dfcfae;background:#fff8e8;border-radius:10px;margin:12px 0;line-height:1.5}.till{font-size:30px;font-weight:800;color:var(--forest);text-align:center;letter-spacing:2px;margin:7px 0}.check{display:flex;gap:9px;align-items:flex-start;padding:12px 0}.check input{width:20px;height:20px}.success{text-align:center;padding:25px}.success .circle{width:65px;height:65px;border-radius:50%;background:var(--leaf);color:#fff;display:grid;place-items:center;font-size:35px;margin:0 auto 14px}
+.category{overflow:hidden;padding:0}.category img{height:115px;width:100%;object-fit:cover}.category .ct{padding:12px}.category h3{font-size:14px;line-height:1.25;text-align:center;margin:0}.learnrow{display:flex;align-items:center;justify-content:space-between}.learnrow div{display:flex;gap:12px;align-items:center}.quote{font-style:italic;color:#555;line-height:1.5}
+.bottom{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:min(760px,100%);height:68px;background:var(--deep);display:grid;grid-template-columns:repeat(5,1fr);z-index:50;border-top:1px solid #183f2e}.navbtn{background:none;border:0;color:#c8d0ca;font-size:11px}.navbtn b{display:block;font-size:22px;margin-bottom:3px}.navbtn.active{color:#fff}.navbtn.active b{color:#d1a64e}
+.hide{display:none!important}@media(min-width:700px){.app{box-shadow:0 0 30px rgba(0,0,0,.08)}}
 </style>
 </head>
 <body>
-<div class="top"><span>☎ +254 700 123 456 &nbsp;&nbsp; ✉ info@anandaayurveda.com</span><span>Nairobi, Kenya</span></div>
-<div class="nav">
- <div class="brand"><b>ANANDA</b><small>Ayurvedic Body & Mind Healing Consultancy<br>Founded by Dr Kim Khan</small></div>
- <div class="links"><a>Home</a><a>About Us</a><a>Services</a><a>Consultations</a><a>Herbal Shop</a><a>Programmes</a><a>Education</a><a>Contact</a></div>
- <div class="cta">BOOK A CONSULTATION</div>
+<div class="app">
+  <div class="top"><span>0723436496</span><span></span></div>
+  <div class="brand"><b>ANANDA</b><span>Ayurvedic Body &amp; Mind Healing Consultancy</span><small>Founded by Dr Kim Khan</small></div>
+
+  <main id="home" class="page active">
+    <section class="hero">
+      <div class="eyebrow">Welcome to</div>
+      <h1>ANANDA</h1>
+      <h2>Ayurvedic Body &amp; Mind Healing Consultancy</h2>
+      <p>Natural wellness consultations, Ayurvedic education and herbal wellness products inspired by traditional knowledge for a healthier body and a calmer mind.</p>
+      <div class="heroimg"></div>
+      <div class="actions">
+        <button class="btn rust" onclick="show('consult')">BOOK A CONSULTATION</button>
+        <button class="btn green" onclick="show('shop')">NATURAL WELLNESS SHOP</button>
+      </div>
+    </section>
+
+
+    <section class="section">
+      <div class="eyebrow">Herbal Wellness Shop</div><h2 class="title">Shop Products</h2>
+      <div class="grid2" id="homeProducts"></div>
+    </section>
+    <section class="section">
+      <div class="eyebrow">Our Wellness Programmes</div>
+      <h2 class="title">Guided Healing Journeys</h2>
+
+      <div class="card">
+        <h3>ANANDA Body Balance Programme</h3>
+        <p>Lifestyle, body awareness, healthy routines and overall wellbeing.</p>
+        <button class="btn green" style="width:100%;margin-top:10px" onclick="show('consult')">ENQUIRE / BOOK</button>
+      </div>
+
+      <div class="card">
+        <h3>ANANDA Mind Balance Programme</h3>
+        <p>Mindfulness, meditation, breathing, relaxation and inner balance.</p>
+        <button class="btn green" style="width:100%;margin-top:10px" onclick="show('consult')">ENQUIRE / BOOK</button>
+      </div>
+
+      <div class="card">
+        <h3>ANANDA Holistic Wellness Programme</h3>
+        <p>Ayurvedic lifestyle, body wellbeing and mind-body practices.</p>
+        <button class="btn green" style="width:100%;margin-top:10px" onclick="show('consult')">ENQUIRE / BOOK</button>
+      </div>
+
+      <div class="card">
+        <h3>Education &amp; Workshops</h3>
+        <p>Practical learning for everyday wellness and healthy living.</p>
+        <button class="btn green" style="width:100%;margin-top:10px" onclick="show('consult')">ENQUIRE / BOOK</button>
+      </div>
+    </section>
+
+  </main>
+
+  <main id="shop" class="page">
+    <section class="section">
+      <div class="eyebrow">ANANDA</div><h1 class="title">Natural Wellness Shop</h1>
+      <input id="search" class="search" placeholder="Search products..." oninput="renderProducts()">
+      <div class="chips"><button class="chip active">All</button><button class="chip">Digestive</button><button class="chip">Wellness</button><button class="chip">Mind &amp; Body</button></div>
+      <div class="grid2" id="products"></div>
+    </section>
+  </main>
+
+  <main id="product" class="page"><section class="section"><button class="back" onclick="show('shop')">‹ Back to Shop</button><div id="productDetail"></div></section></main>
+  <main id="cart" class="page"><section class="section"><div class="eyebrow">SHOP</div><h1 class="title">Your Cart</h1><div id="cartItems"></div><div class="card"><div class="listrow"><span>Subtotal</span><b id="subtotal" style="margin-left:auto">KES 0</b></div><div class="listrow"><span>Delivery</span><b style="margin-left:auto">KES 0</b></div><div class="listrow"><span>Total</span><b id="total" style="margin-left:auto">KES 0</b></div><button class="btn green" style="width:100%;margin-top:12px" onclick="show('checkout')">PROCEED TO CHECKOUT</button></div></section></main>
+
+  <main id="checkout" class="page"><section class="section">
+    <button class="back" onclick="show('cart')">‹ Back to Cart</button><div class="eyebrow">ORDER CHECKOUT</div><h1 class="title">Pay Before Delivery</h1>
+    <div class="notice"><b>IMPORTANT — PAYMENT REQUIRED</b><div>Please pay for your order first through M-PESA before delivery.</div><div class="till">5475967</div><div style="text-align:center"><b>M-PESA TILL NUMBER</b></div><ol><li>Open M-PESA</li><li>Select Lipa na M-PESA</li><li>Select Buy Goods and Services</li><li>Enter Till Number <b>5475967</b></li><li>Enter the order amount</li><li>Complete the payment and keep your confirmation message</li></ol></div>
+    <div class="card form"><h3>Delivery Details</h3><label>Full Name *</label><input id="custName" required><label>Phone Number *</label><input id="custPhone" type="tel" placeholder="+254..." required><label>Email</label><input id="custEmail" type="email"><label>Delivery Address *</label><input id="custAddress" required><label>City / Town *</label><input id="custCity" required><label>M-PESA Confirmation Code *</label><input id="mpesaCode" placeholder="e.g. QWE123ABC" required>
+    <label class="check"><input id="paid" type="checkbox"> <span>I confirm that I have paid the full order amount to <b>M-PESA Till 5475967</b>.</span></label>
+    <button class="btn green" style="width:100%" onclick="placeOrder()">I HAVE PAID — COMPLETE ORDER</button></div>
+  </section></main>
+
+  <main id="consult" class="page"><section class="section"><div class="eyebrow">ANANDA</div><h1 class="title">Book a Consultation</h1>
+    <div class="card"><h3>Online Consultations</h3><p>Personalised wellness consultations can be arranged remotely. Complete the form below and ANANDA can contact you.</p></div>
+    <div class="card form"><label>Full Name *</label><input id="conName" required><label>Phone Number *</label><input id="conPhone" type="tel" placeholder="+254..." required><label>Email</label><input id="conEmail" type="email"><label>Consultation Type *</label><select id="conType"><option>General Wellness Consultation</option><option>Ayurvedic Wellness Consultation</option><option>Mind &amp; Stress Wellness Consultation</option><option>Follow-up Consultation</option></select><label>Preferred Date</label><input id="conDate" type="date"><label>Preferred Time</label><input id="conTime" type="time"><label>Reason for Consultation</label><textarea id="conReason" placeholder="Tell us briefly how we can help"></textarea><button class="btn rust" style="width:100%;margin-top:12px" onclick="bookConsult()">BOOK CONSULTATION</button></div>
+    <button class="btn outline" style="width:100%" onclick="window.location.href='https://wa.me/254723436496'">CHAT ON WHATSAPP</button>
+  </section></main>
+
+  <main id="consultDone" class="page"><section class="section"><div class="card success"><div class="circle">✓</div><h2>Consultation Request Sent</h2><p>Thank you. Your request has been recorded on this device. Please contact ANANDA on WhatsApp or phone to confirm the appointment.</p><button class="btn green" style="width:100%" onclick="show('home')">BACK TO HOME</button></div></section></main>
+
+  <main id="learn" class="page"><section class="section">
+    <div class="eyebrow">LEARN</div><h1 class="title">Wellness Knowledge</h1>
+    <div class="card learnrow" onclick="show('categories')"><div><span class="icon">🌿</span><div><b>1. Categories</b><small>10 wellness areas</small></div></div><b>›</b></div>
+    <div class="card learnrow" onclick="show('programmes')"><div><span class="icon">🧘</span><div><b>2. Programmes</b><small>Guided healing programmes</small></div></div><b>›</b></div>
+    <div class="card learnrow" onclick="show('drkim')"><div><span class="icon">👤</span><div><b>3. Dr Kim Khan</b><small>Healing with Ayurvedic</small></div></div><b>›</b></div>
+    <div class="card learnrow" onclick="show('hub')"><div><span class="icon">📖</span><div><b>4. Learning Hub</b><small>Doshas, principles and resources</small></div></div><b>›</b></div>
+    <div class="card learnrow" onclick="show('blog')"><div><span class="icon">📝</span><div><b>5. Blog &amp; Articles</b><small>Ayurveda and wellness knowledge</small></div></div><b>›</b></div>
+    <div class="card learnrow" onclick="show('testimonials')"><div><span class="icon">💬</span><div><b>6. Testimonials</b><small>Client experiences</small></div></div><b>›</b></div>
+  </section></main>
+
+  <main id="testimonials" class="page">
+    <section class="section">
+      <button class="back" onclick="show('learn')">‹ Back to Learn</button>
+      <div class="eyebrow">CLIENT EXPERIENCES</div>
+      <h1 class="title">Testimonials</h1>
+
+      <div class="card">
+        <p class="quote">“The guidance helped me understand healthier daily routines and take better care of my body and mind.”</p>
+        <b>— ANANDA Client</b>
+      </div>
+
+      <div class="card">
+        <p class="quote">“The wellness products and personalised guidance have become part of my everyday routine.”</p>
+        <b>— ANANDA Client</b>
+      </div>
+    </section>
+  </main>
+
+  <main id="categories" class="page"><section class="section"><button class="back" onclick="show('learn')">‹ Back to Learn</button><div class="eyebrow">WELLNESS CATEGORIES</div><h1 class="title">Our Herbal Wellness Categories</h1><div class="grid2" id="categoriesGrid"></div></section></main>
+
+  <main id="categoryDetail" class="page"><section class="section"><button class="back" onclick="show('categories')">‹ Back to Categories</button><div id="categoryContent"></div></section></main>
+
+  <main id="programmes" class="page"><section class="section"><button class="back" onclick="show('learn')">‹ Back to Learn</button><div class="eyebrow">WELLNESS PROGRAMMES</div><h1 class="title">Guided Healing Journeys</h1>
+    <div class="card"><h3>ANANDA Body Balance Programme</h3><p>A guided programme focusing on lifestyle, body awareness, healthy routines and overall wellbeing.</p><button class="smallbtn" onclick="show('consult')">Enquire / Book</button></div>
+    <div class="card"><h3>ANANDA Mind Balance Programme</h3><p>A programme focused on mindfulness, meditation, breathing, relaxation and inner balance.</p><button class="smallbtn" onclick="show('consult')">Enquire / Book</button></div>
+    <div class="card"><h3>ANANDA Holistic Wellness Programme</h3><p>A combined programme covering Ayurvedic lifestyle, body wellbeing and mind-body practices.</p><button class="smallbtn" onclick="show('consult')">Enquire / Book</button></div>
+  </section></main>
+
+  <main id="drkim" class="page"><section class="section"><button class="back" onclick="show('learn')">‹ Back to Learn</button><div class="eyebrow">DR KIM KHAN</div><h1 class="title">Healing with Ayurvedic</h1><div class="card"><img class="detailimg" src="assets/herbal-hero.jpg"><h2>About Dr Kim Khan</h2><p class="intro">Dr Kim Khan is the founder of ANANDA Ayurvedic Body &amp; Mind Healing Consultancy. ANANDA shares Ayurvedic wellness knowledge, natural lifestyle education and personalised wellness guidance.</p><button class="btn outline" style="width:100%" onclick="window.location.href='https://www.tiktok.com/'">Watch on TikTok</button></div></section></main>
+
+  <main id="hub" class="page"><section class="section"><button class="back" onclick="show('learn')">‹ Back to Learn</button><div class="eyebrow">RESOURCES</div><h1 class="title">Learning Hub</h1><div class="card"><h3>Learn Ayurveda</h3><p>Doshas, lifestyle principles, herbal knowledge and everyday wellness practices.</p></div><div class="card"><h3>Mind Healing Resources</h3><p>Mindfulness, meditation, breathing, relaxation and inner balance.</p></div></section></main>
+
+  <main id="blog" class="page"><section class="section"><button class="back" onclick="show('learn')">‹ Back to Learn</button><div class="eyebrow">WELLNESS KNOWLEDGE</div><h1 class="title">Blog &amp; Articles</h1><div class="card"><h3>Understanding Your Ayurvedic Dosha</h3><p>Discover how understanding Vata, Pitta and Kapha can guide everyday wellness decisions.</p></div><div class="card"><h3>The Body–Mind Connection in Ayurveda</h3><p>Explore the relationship between physical wellbeing, daily habits and the mind.</p></div><div class="card"><h3>Natural Lifestyle for Everyday Wellness</h3><p>Simple traditional wellness principles for a balanced daily routine.</p></div></section></main>
+
+  <main id="contact" class="page"><section class="section"><div class="eyebrow">ANANDA</div><h1 class="title">Get in Touch</h1><p class="intro">We would love to hear from you. Reach out to book a consultation, enquire about products or programmes, or simply say hello.</p><button class="btn rust" style="width:100%;margin-bottom:10px" onclick="show('consult')">BOOK A CONSULTATION</button><button class="btn outline" style="width:100%;margin-bottom:18px" onclick="window.location.href='https://wa.me/254723436496'">CHAT ON WHATSAPP</button><div class="card"><h3>Phone</h3><p>0723436496</p></div><div class="card"><h3>WhatsApp</h3><p>Chat with Dr Kim Khan</p></div><div class="card"><h3>Email</h3><p>info@anandaayurveda.com</p></div><div class="card"><h3>Availability</h3><p>Online consultations available worldwide</p></div></section></main>
+
+  <nav class="bottom">
+    <button class="navbtn active" data-page="home" onclick="show('home')"><b>⌂</b>Home</button>
+    <button class="navbtn" data-page="shop" onclick="show('shop')"><b>🛍</b>Shop</button>
+    <button class="navbtn" data-page="learn" onclick="show('categories')"><b>☘</b>Categories</button>
+    <button class="navbtn" data-page="learn" onclick="show('learn')"><b>▤</b>Learn</button>
+    <button class="navbtn" data-page="contact" onclick="show('contact')"><b>☎</b>Contact</button>
+  </nav>
 </div>
-<section class="hero">
- <div class="copy">
-  <div class="welcome">Welcome to</div>
-  <h1>ANANDA</h1>
-  <h2>Ayurvedic Body & Mind<br>Healing Consultancy</h2>
-  <p>Natural wellness consultations, Ayurvedic education and herbal wellness products inspired by traditional knowledge for a healthier body and a calmer mind.</p>
-  <div class="buttons"><a class="btn green action" href="https://wa.me/254700123456?text=Hello%20ANANDA%2C%20I%20would%20like%20to%20book%20a%20consultation.">BOOK A CONSULTATION</a><a class="btn white action" href="#shop">VISIT HERBAL SHOP</a></div>
- </div>
- <div class="heroimg"></div>
-</section>
-<section class="title"><h2>OUR HERBAL WELLNESS CATEGORIES</h2><i></i></section>
-<section class="categories">
-<div class="card"><img src="assets/cat-1.jpg" alt="1. MEN'S WELLNESS"><div>1. MEN'S WELLNESS</div></div>
-<div class="card"><img src="assets/cat-2.jpg" alt="2. WOMEN'S WELLNESS"><div>2. WOMEN'S WELLNESS</div></div>
-<div class="card"><img src="assets/cat-3.jpg" alt="3. BONES, JOINTS & MOBILITY"><div>3. BONES, JOINTS & MOBILITY</div></div>
-<div class="card"><img src="assets/cat-4.jpg" alt="4. URINARY & EXCRETORY WELLNESS"><div>4. URINARY & EXCRETORY WELLNESS</div></div>
-<div class="card"><img src="assets/cat-5.jpg" alt="5. SKIN & NATURAL CLEANSING"><div>5. SKIN & NATURAL CLEANSING</div></div>
-<div class="card"><img src="assets/cat-6.jpg" alt="6. DIGESTIVE & GUT WELLNESS"><div>6. DIGESTIVE & GUT WELLNESS</div></div>
-<div class="card"><img src="assets/cat-7.jpg" alt="7. NERVOUS SYSTEM & MIND WELLNESS"><div>7. NERVOUS SYSTEM & MIND WELLNESS</div></div>
-<div class="card"><img src="assets/cat-8.jpg" alt="8. HEART & CIRCULATORY WELLNESS"><div>8. HEART & CIRCULATORY WELLNESS</div></div>
-<div class="card"><img src="assets/cat-9.jpg" alt="9. RESPIRATORY WELLNESS"><div>9. RESPIRATORY WELLNESS</div></div>
-<div class="card"><img src="assets/cat-10.jpg" alt="10. MENTAL WELLNESS & STRESS MANAGEMENT"><div>10. MENTAL WELLNESS & STRESS MANAGEMENT</div></div>
 
-</section>
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
+import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-database.js";
 
-<section class="title" id="shop"><h2>HERBAL SHOP</h2><i></i>
-<div class="shop-grid" style="max-width:1000px;margin:18px auto 0;padding:0 14px">
-  <a class="shop-item" href="https://wa.me/254700123456?text=Hello%20ANANDA%2C%20I%20would%20like%20information%20about%20Men%27s%20Wellness%20products."><strong>Men's Wellness</strong><span>Ask about available herbal products</span></a>
-  <a class="shop-item" href="https://wa.me/254700123456?text=Hello%20ANANDA%2C%20I%20would%20like%20information%20about%20Women%27s%20Wellness%20products."><strong>Women's Wellness</strong><span>Ask about available herbal products</span></a>
-  <a class="shop-item" href="https://wa.me/254700123456?text=Hello%20ANANDA%2C%20I%20would%20like%20information%20about%20Digestive%20Wellness%20products."><strong>Digestive & Gut Wellness</strong><span>Ask about available herbal products</span></a>
-  <a class="shop-item" href="https://wa.me/254700123456?text=Hello%20ANANDA%2C%20I%20would%20like%20information%20about%20Mind%20%26%20Stress%20Wellness%20products."><strong>Mind & Stress Wellness</strong><span>Ask about available herbal products</span></a>
-</div></section>
+const firebaseConfig = {
+  apiKey: "AIzaSyBQYwUSEVfdeHlb0d2EHTO6r4l3C70TBtQ",
+  authDomain: "ananda-3fb23.firebaseapp.com",
+  databaseURL: "https://ananda-3fb23-default-rtdb.firebaseio.com",
+  projectId: "ananda-3fb23",
+  storageBucket: "ananda-3fb23.firebasestorage.app",
+  messagingSenderId: "1065653697435",
+  appId: "1:1065653697435:web:00f7318bc94ae4d38bff3e"
+};
 
-<section class="info">
- <div class="box"><h3>ABOUT ANANDA</h3><p>ANANDA is an Ayurvedic Body and Mind Healing Consultancy founded by Dr Kim Khan. We focus on natural wellness education, traditional Ayurvedic approaches and guidance for healthier living.</p></div>
- <div class="box"><h3>OUR SERVICES</h3><ul><li>Ayurvedic Wellness</li><li>Body Wellbeing</li><li>Mind Healing & Mindfulness</li><li>Personal Consultations</li><li>Online Consultations</li><li>Education & Training</li></ul></div>
- <div class="box"><h3>UPCOMING PROGRAMMES</h3><p><b>Ayurvedic Lifestyle Workshop</b><br>Nairobi</p><p><b>Mindfulness & Meditation Classes</b><br>Online</p><p><b>Herbal Medicine Training</b><br>Educational programme</p></div>
-</section>
-<section class="highlight"><h2>Healing with Ayurvedic – Dr Kim Khan</h2><p>Explore Ayurveda, natural wellness, mindfulness and practical education for body and mind wellbeing.</p></section>
+const firebaseApp = initializeApp(firebaseConfig);
+const db = getDatabase(firebaseApp);
 
-<nav class="mobilebar">
- <a href="#"><b>⌂</b>Home</a>
- <a href="#shop"><b>🛍</b>Shop</a>
- <a href="https://wa.me/254700123456?text=Hello%20ANANDA%2C%20I%20would%20like%20to%20book%20a%20consultation."><b>💬</b>WhatsApp</a>
- <a href="tel:+254700123456"><b>☎</b>Call</a>
-</nav>
+window.anandaFirebase = { db, ref, onValue };
 
-<footer>© 2026 ANANDA Ayurvedic Body & Mind Healing Consultancy</footer>
-</body></html>
+onValue(ref(db, "/settings"), (snapshot) => {
+  const data = snapshot.val();
+  console.log("ANANDA FIREBASE SETTINGS:", data);
+  window.anandaFirebaseSettings = data;
+});
+</script>
+
+<script>
+let cats=[];
+
+function loadFirebaseCategories(){
+  if(!window.anandaFirebase){
+    console.error("ANANDA Firebase is not available.");
+    return;
+  }
+
+  const {db,ref,onValue}=window.anandaFirebase;
+
+  onValue(ref(db,"/categories"),(snapshot)=>{
+    const data=snapshot.val()||{};
+
+    cats=Object.entries(data).map(([id,c])=>[
+      c.name || "Unnamed Category",
+      c.image || "assets/herbal-hero.jpg",
+      c.description || "",
+      id
+    ]);
+
+    console.log("ANANDA FIREBASE CATEGORIES:",cats);
+
+    renderCats();
+  });
+}
+
+loadFirebaseCategories();
+let products=[];
+
+function loadFirebaseProducts(){
+  if(!window.anandaFirebase){
+    console.error("ANANDA Firebase is not available.");
+    return;
+  }
+
+  const {db,ref,onValue}=window.anandaFirebase;
+
+  onValue(ref(db,"/products"),(snapshot)=>{
+    const data=snapshot.val()||{};
+
+    const entries=Object.entries(data)
+      .filter(([id,p])=>p && p.active !== false);
+
+    products=entries.map(([id,p])=>[
+      p.name || "Unnamed Product",
+      `${p.currency || "KES"} ${Number(p.price || 0).toLocaleString()}`,
+      p.image || "assets/herbal-hero.jpg",
+      p.description || "",
+      p.benefits || "",
+      p.howToUse || "Follow the product label or personalised guidance from your wellness practitioner. Do not exceed recommended use.",
+      id
+    ]);
+
+    console.log("ANANDA FIREBASE PRODUCTS:",products);
+
+    renderProducts();
+
+    const homeBox=document.getElementById('homeProducts');
+    if(homeBox){
+      homeBox.innerHTML=entries
+        .filter(([id,p])=>p.featured === true)
+        .slice(0,4)
+        .map(([id,p])=>[
+          p.name || "Unnamed Product",
+          `${p.currency || "KES"} ${Number(p.price || 0).toLocaleString()}`,
+          p.image || "assets/herbal-hero.jpg",
+          p.description || "",
+          p.benefits || "",
+          p.howToUse || "Follow the product label or personalised guidance from your wellness practitioner. Do not exceed recommended use.",
+          id
+        ])
+        .map(p=>productCard(p,products.findIndex(x=>x[6]===p[6])))
+        .join('');
+    }
+  });
+}
+
+loadFirebaseProducts();
+let cart=JSON.parse(localStorage.getItem('anandaCart')||'[]');
+
+function getProductById(id){
+  return products.find(p=>p[6]===id);
+}
+
+function show(id){
+ document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+ const el=document.getElementById(id); if(el) el.classList.add('active');
+ const base=['home','shop','consult','learn','contact'].includes(id)?id:(id==='categories'||id==='programmes'||id==='drkim'||id==='hub'||id==='blog'||id==='testimonials'||id==='categoryDetail'? 'learn':id==='product'||id==='cart'||id==='checkout'?'shop':id);
+ document.querySelectorAll('.navbtn').forEach(b=>b.classList.toggle('active',b.dataset.page===base));
+ window.scrollTo(0,0);
+ if(id==='shop')renderProducts(); if(id==='cart')renderCart();
+}
+function renderProducts(){
+ const q=(document.getElementById('search')?.value||'').toLowerCase();
+ const list=products.filter(p=>p[0].toLowerCase().includes(q));
+ document.getElementById('products').innerHTML=list.map((p,i)=>productCard(p,i)).join('');
+}
+function productCard(p,i){return `<div class="card product"><img src="${p[2]}"><h3>${p[0]}</h3><p>${p[3]}</p><div class="price">${p[1]}</div><button class="smallbtn" onclick="details(${i})">VIEW DETAILS</button></div>`}
+function details(i){
+ const p=products[i];
+ if(!p)return;
+
+ document.getElementById('productDetail').innerHTML=`
+   <img class="detailimg" src="${p[2]}">
+   <h1 class="title">${p[0]}</h1>
+   <div class="price">${p[1]}</div>
+   <p class="intro">${p[3]}</p>
+
+   <div class="card">
+     <h3>Benefits</h3>
+     <p>${p[4]}</p>
+   </div>
+
+   <div class="card">
+     <h3>How to use</h3>
+     <p>${p[5]}</p>
+   </div>
+
+   <button class="btn green" style="width:100%" onclick="addCart(${i})">
+     ADD TO CART
+   </button>`;
+
+ show('product');
+}
+function addCart(i){
+ const p=products[i];
+ if(!p)return;
+ cart.push(p[6]);
+ localStorage.setItem('anandaCart',JSON.stringify(cart));
+ show('cart');
+}
+function renderCart(){
+ const box=document.getElementById('cartItems');
+
+ if(!cart.length){
+   box.innerHTML='<div class="card"><p>Your cart is empty.</p></div>';
+   document.getElementById('subtotal').textContent='KES 0';
+   document.getElementById('total').textContent='KES 0';
+   return;
+ }
+
+ let total=0;
+
+ box.innerHTML=cart.map((id,n)=>{
+   const p=getProductById(id);
+   if(!p)return '';
+
+   const amount=parseInt(p[1].replace(/[^0-9]/g,''))||0;
+   total+=amount;
+
+   return `<div class="card listrow">
+     <img src="${p[2]}" style="width:60px;height:60px;object-fit:cover;border-radius:8px">
+     <div><b>${p[0]}</b><div class="price">${p[1]}</div></div>
+     <button style="margin-left:auto;border:0;background:none" onclick="removeCart(${n})">🗑</button>
+   </div>`;
+ }).join('');
+
+ document.getElementById('subtotal').textContent='KES '+total.toLocaleString();
+ document.getElementById('total').textContent='KES '+total.toLocaleString();
+}
+function removeCart(n){cart.splice(n,1);localStorage.setItem('anandaCart',JSON.stringify(cart));renderCart()}
+function placeOrder(){const name=document.getElementById('custName').value.trim(),phone=document.getElementById('custPhone').value.trim(),address=document.getElementById('custAddress').value.trim(),city=document.getElementById('custCity').value.trim(),code=document.getElementById('mpesaCode').value.trim(),paid=document.getElementById('paid').checked;if(!name||!phone||!address||!city||!code||!paid){alert('Please complete your details, enter the M-PESA confirmation code and confirm that you paid Till 5475967 before placing the order.');return}localStorage.removeItem('anandaCart');cart=[];alert('Order received. Payment confirmation recorded. Delivery can now be arranged.');show('home')}
+function bookConsult(){const n=document.getElementById('conName').value.trim(),p=document.getElementById('conPhone').value.trim();if(!n||!p){alert('Please enter your name and phone number.');return}localStorage.setItem('anandaConsultation',JSON.stringify({name:n,phone:p,email:document.getElementById('conEmail').value,type:document.getElementById('conType').value,date:document.getElementById('conDate').value,time:document.getElementById('conTime').value,reason:document.getElementById('conReason').value}));show('consultDone')}
+function renderCats(){
+  const grid=document.getElementById('categoriesGrid');
+  if(!grid) return;
+
+  if(!cats.length){
+    grid.innerHTML='<div class="card"><p>No wellness categories are currently available.</p></div>';
+    return;
+  }
+
+  grid.innerHTML=cats.map((c,i)=>`
+    <div class="card category" onclick="openCat(${i})">
+      <img src="${c[1]}">
+      <div class="ct"><h3>${c[0]}</h3></div>
+    </div>
+  `).join('');
+}
+function openCat(i){const c=cats[i];document.getElementById('categoryContent').innerHTML=`<img class="detailimg" src="${c[1]}"><div class="eyebrow">WELLNESS CATEGORY</div><h1 class="title">${c[0]}</h1><p class="intro">${c[2]}</p><div class="card"><h3>Explore this area</h3><p>Learn about lifestyle practices, traditional wellness approaches and related ANANDA products. Information provided is for general wellness education and is not a substitute for medical diagnosis or treatment.</p></div><button class="btn green" style="width:100%" onclick="show('shop')">VIEW WELLNESS SHOP</button>`;show('categoryDetail')}
+</script>
+</body>
+</html>
